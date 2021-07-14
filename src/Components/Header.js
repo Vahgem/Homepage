@@ -1,17 +1,18 @@
-import React, { Component } from "react";
+import React,{useState} from "react";
 import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
 
-class Header extends Component {
-  render() {
-    if (!this.props.data) return null;
 
-    const project = this.props.data.project;
-    const github = this.props.data.github;
-    const name = this.props.data.name;
-    const description = this.props.data.description;
+    const project = "https://vahgem.github.io/marketplace/";
+    const github = "nothing";
+   
+    const description = "Filmstars and cricketers have always been connected, we can see multiple cricketers and filmstars meeting and even go as far as to date.";
 
-    return (
+
+    
+export default function Header() {
+  const [curr, setCurr] = useState("home");
+      return (
       <header id="home">
         <ParticlesBg type="circle" bg={true} />
 
@@ -24,33 +25,28 @@ class Header extends Component {
           </a>
 
           <ul id="nav" className="nav">
-            <li className="current">
-              <a className="smoothscroll" href="#home">
+            <li className={curr==="home"?"current":"nonactive"}>
+              <a className="smoothscroll" href="#home" onClick={()=>setCurr("home")}>
                 Home
               </a>
             </li>
 
-            <li>
-              <a className="smoothscroll" href="#about">
+            <li className={curr==="about"?"current":"nonactive"}>
+              <a className="smoothscroll" href="#about" onClick={() => setCurr("about" )}>
                 About
               </a>
             </li>
 
-            <li>
-              <a className="smoothscroll" href="#resume">
-                Resume
-              </a>
-            </li>
-
-            <li>
-              <a className="smoothscroll" href="#portfolio">
+            
+            <li className={curr==="works"?"current":"nonactive"}>
+              <a className="smoothscroll" href="#Howto" onClick={() => setCurr("works")}>
                 Works
               </a>
             </li>
 
-            <li>
-              <a className="smoothscroll" href="#contact">
-                Contact
+            <li className={curr==="faq"?"current":"nonactive"}>
+              <a className="smoothscroll" href="#faq" onClick={() => setCurr("faq")}>
+                FAQs
               </a>
             </li>
           </ul>
@@ -59,16 +55,16 @@ class Header extends Component {
         <div className="row banner">
           <div className="banner-text">
             <Fade bottom>
-              <h1 className="responsive-headline">{name}</h1>
+              <h1 className="responsive-headline">FCUC</h1>
             </Fade>
             <Fade bottom duration={1200}>
-              <h3>{description}.</h3>
+              <h3>{description}</h3>
             </Fade>
             <hr />
             <Fade bottom duration={2000}>
               <ul className="social">
                 <a href={project} className="button btn project-btn">
-                  <i className="fa fa-book"></i>Project
+                  <i className="fa fa-book" ></i>MarketPlace
                 </a>
                 <a href={github} className="button btn github-btn">
                   <i className="fa fa-github"></i>Github
@@ -86,6 +82,4 @@ class Header extends Component {
       </header>
     );
   }
-}
 
-export default Header;
