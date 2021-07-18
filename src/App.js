@@ -1,25 +1,12 @@
-import React, { Component } from "react";
-import "./App.css";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-import About from "./Components/About";
-import Howtonft from "./Components/Howtonft";
-import Faqs from "./Components/Faq";
-
-class App extends Component {
- 
-
-  render() {
+import React from 'react'
+import Homepage from './Homepage.js';
+import Market from './Market.js';
+import { Route, BrowserRouter as Router } from "react-router-dom";
+export default function App() {
     return (
-      <div className="App">
-        <Header />
-        <About  />
-        <Howtonft />
-        <Faqs/>
-       <Footer/>
-      </div>
-    );
-  }
+        <Router>
+            <Route path="/" exact component={Homepage}/>
+            <Route path="/market" exact component={Market}/>
+        </Router>
+    )
 }
-
-export default App;
