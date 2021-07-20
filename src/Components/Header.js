@@ -4,7 +4,7 @@ import Fade from "react-reveal";
 
 
     const project = "./market";
-    const github = "https://github.com/Vahgem/Homepage";
+    const github = "https://github.com/Vahgem/Homepage/tree/vahgem";
    
     const description = "Filmstars and cricketers have always been connected, we can see multiple cricketers and filmstars meeting and even go as far as to date.";
 
